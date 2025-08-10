@@ -13,3 +13,7 @@ Route::resource('techniciens', TechnicienController::class);
 Route::get('/', function () {
     return redirect()->route('vehicules.index');
 });
+
+Route::get('/', function () {
+    return view('welcome');
+});
