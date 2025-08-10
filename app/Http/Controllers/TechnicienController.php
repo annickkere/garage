@@ -3,62 +3,55 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Technicien;
 
 class TechnicienController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $techniciens = Technicien::all();
+        return view('techniciens.index', compact('techniciens'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('techniciens.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'specialite' => 'required|string|max:255',
+        ]);
+
+        Technicien::create($request->all());
+
+        return redirect()->route('techniciens.index')->with('success', 'Technicien ajouté.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(Technicien $technicien)
     {
-        //
+        return view('techniciens.edit', compact('technicien'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, Technicien $technicien)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'specialite' => 'required|string|max:255',
+        ]);
+
+        $technicien->update($request->all());
+
+        return redirect()->route('techniciens.index')->with('success', 'Technicien mis à jour.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy(Technicien $technicien)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $technicien->delete();
+        return redirect()->route('techniciens.index')->with('success', 'Technicien supprimé.');
     }
 }
