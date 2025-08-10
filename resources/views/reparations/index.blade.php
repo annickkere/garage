@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+<a href="{{ url('/') }}" class="btn btn-secondary mb-3">🏠 Retour à l'accueil</a>
 <h2>Réparations</h2>
 <a href="{{ route('reparations.create') }}" class="btn btn-primary mb-3">Ajouter</a>
 
