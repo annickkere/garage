@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
 use App\Models\Vehicule;
 use App\Models\Reparation;
 use App\Models\Technicien;
