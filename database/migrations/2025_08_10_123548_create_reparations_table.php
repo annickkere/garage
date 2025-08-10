@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('reparations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('vehicule_id')->constrained()->onDelete('cascade');
+            $table->date('date');
+            $table->string('duree_main_oeuvre');
+            $table->text('objet_reparation');
             $table->timestamps();
         });
     }
