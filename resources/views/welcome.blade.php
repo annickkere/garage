@@ -23,7 +23,7 @@
 </head>
 <body>
     <div class="centered text-center">
-        <h1 class="mb-4">🚗 Application de Gestion du Garage</h1>
+        <h1 class="mb-4">🚗 Application de Gestion de Garage</h1>
 
         <div>
             <a href="{{ route('vehicules.index') }}" class="btn btn-primary btn-lg">Véhicules</a>
