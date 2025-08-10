@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\Reparation;
 use App\Models\Vehicule;
 use App\Models\Technicien;
